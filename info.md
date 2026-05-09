@@ -473,3 +473,6 @@ The application:
 - deploys application online
 
 Users can now predict insurance charges directly through the deployed website.
+
+
+LINK -   https://insurance-prediction-app.onrender.com/
