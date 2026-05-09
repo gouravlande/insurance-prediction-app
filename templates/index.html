@@ -1,45 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Insurance Prediction</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Insurance Charges Predictor</title>
+
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
     <div class="container">
+      <h1>Insurance Charges Predictor</h1>
 
-        <h1>Insurance Charges Predictor</h1>
+      <!-- Prediction Form -->
+      <form action="/predict_form" method="post">
+        <input type="number" step="any" name="age" placeholder="Age" required />
 
-        <form action="/predict_form" method="post">
+        <input
+          type="number"
+          name="is_female"
+          placeholder="Female? (1=yes,0=no)"
+          required
+        />
 
-            <input type="number" step="any" name="age" placeholder="Age" required>
+        <input type="number" step="any" name="bmi" placeholder="BMI" required />
 
-            <input type="number" name="is_female" placeholder="Female? (1=yes,0=no)" required>
+        <input
+          type="number"
+          step="any"
+          name="children"
+          placeholder="Children"
+          required
+        />
 
-            <input type="number" step="any" name="bmi" placeholder="BMI" required>
+        <input
+          type="number"
+          name="is_smoker"
+          placeholder="Smoker? (1=yes,0=no)"
+          required
+        />
 
-            <input type="number" step="any" name="children" placeholder="Children" required>
+        <input
+          type="number"
+          name="region_southeast"
+          placeholder="Southeast? (1=yes,0=no)"
+          required
+        />
 
-            <input type="number" name="is_smoker" placeholder="Smoker? (1=yes,0=no)" required>
+        <input
+          type="number"
+          name="bmi_category_obese"
+          placeholder="Obese? (1=yes,0=no)"
+          required
+        />
 
-            <input type="number" name="region_southeast" placeholder="Southeast? (1=yes,0=no)" required>
+        <button type="submit">Predict</button>
+      </form>
 
-            <input type="number" name="bmi_category_obese" placeholder="Obese? (1=yes,0=no)" required>
+      <!-- Prediction Result -->
+      {% if prediction %}
 
-            <button type="submit">Predict</button>
+      <h2>Predicted Insurance Charges: ₹ {{ prediction }}</h2>
 
-        </form>
-
-        {% if prediction %}
-
-            <h2>
-                Predicted Insurance Charges:
-                ₹ {{ prediction }}
-            </h2>
-
-        {% endif %}
-
+      {% endif %}
     </div>
-
-</body>
+  </body>
 </html>
